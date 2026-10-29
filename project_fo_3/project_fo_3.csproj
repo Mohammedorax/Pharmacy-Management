@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -48,21 +49,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>project_fo_3.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Guna.UI">
-      <HintPath>C:\Users\User\Downloads\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 3.5\Guna.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="AntdUI">
+      <HintPath>..\packages\AntdUI.2.4.11\lib\net46\AntdUI.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Accessibility" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,40 +84,354 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Resources.Extensions">
+      <HintPath>..\packages\System.Resources.Extensions.8.0.0\lib\net462\System.Resources.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SalesA4PrintLayout.cs" />
+    <Compile Include="InvoicePrintFlow.cs" />
+    <Compile Include="MedicineUnitInvoiceBridge.cs" />
+    <Compile Include="MedicineUnitPendingStore.cs" />
+    <Compile Include="MedicineUnitCatalogEditor.cs" />
+    <Compile Include="MedicineUnitPicker.cs" />
+    <Compile Include="InvoicePrintSelection.cs" />
+    <Compile Include="InvoiceIssuerReadSession.cs" />
+    <Compile Include="FrequentMedicinePreferences.cs" />
+    <Compile Include="FrequentMedicineDesktopSession.cs" />
+    <Compile Include="FrequentMedicineCartRecorder.cs" />
+    <Compile Include="JournalDocumentDesktopService.cs" />
     <Compile Include="Agent.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EmployeeOperationPermissionsForm.cs" />
     <Compile Include="Agent.Designer.cs">
       <DependentUpon>Agent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Billing.cs">
+    <Compile Include="MedicineSearchComboBox.cs" />
+    <Compile Include="CommerceWorkflowEnhancements.cs" />
+    <Compile Include="DailyOperationsForm.cs" />
+    <Compile Include="DailyOperationDetailsSelfTests.cs" />
+    <Compile Include="AccountingHistoryReadOnlySelfTests.cs" />
+    <Compile Include="PdfCompletionSelfTests.cs" />
+    <Compile Include="ReportTemplateStorageSelfTests.cs" />
+    <Compile Include="ReportTemplateFileCommit.cs" />
+    <Compile Include="DeviceSettingsStorageSelfTests.cs" />
+    <Compile Include="LanguageSettingsStorageSelfTests.cs" />
+    <Compile Include="Billing.SalesRecovery.cs" /><Compile Include="Billing.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AccountingForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountingDataForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingHomeForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingReportsForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChartOfAccountsForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLedgerForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JournalEntriesForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JournalEntriesQuickForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningEntriesForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiptVoucherForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherForm.Designer.cs">
+      <DependentUpon>AccountingForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountingService.cs" />
+    <Compile Include="AccountingPeriodService.cs" />
+    <Compile Include="AccountingPeriodManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AntdDateInput.cs" />
+    <Compile Include="TaxPolicyService.cs" />
+    <Compile Include="TaxSettingsRecovery.cs" />
+    <Compile Include="QaTaxPolicySelfTests.cs" />
+    <Compile Include="QaSaudiBatchRollbackVerification.cs" />
+    <Compile Include="QaSalesInvoiceSelfTests.cs" /><Compile Include="QaSalesIdempotencySqlSelfTests.cs" /><Compile Include="QaPurchaseIdempotencySqlSelfTests.cs" /><Compile Include="WindowStabilitySelfTests.cs" /><Compile Include="PurchaseCommitAuthority.cs" /><Compile Include="PerfTrace.cs" /><Compile Include="SqlImportedInvoiceLookup.cs" /><Compile Include="LiveAccessibilitySelfTests.cs" />
+    <Compile Include="QaCashBoxSaleSelfTests.cs" />
+    <Compile Include="TaxSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaxSettingsForm.Designer.cs">
+      <DependentUpon>TaxSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesInvoiceCancellationService.cs" />
+    <Compile Include="SalesInvoiceCancellationOperation.cs" />
+    <Compile Include="SalesInvoiceOperation.cs" /><Compile Include="SalesInvoiceOperation.Recovery.cs" /><Compile Include="SalesWriteReceiptStore.cs" /><Compile Include="SalesPendingStore.cs" /><Compile Include="SalesWriteRecoveryCoordinator.cs" /><Compile Include="SalesIdempotencySelfTests.cs" />
+    <Compile Include="PurchaseDraftSequenceService.cs" />
+    <Compile Include="JournalEntryLookupService.cs" />
+    <Compile Include="JournalEntriesQuickReadService.cs" />
+    <Compile Include="ReceiptVoucherWorkspaceService.cs" />
+    <Compile Include="VoucherTableProjection.cs" />
+    <Compile Include="AccountingLookupTableProjection.cs" />
+    <Compile Include="JournalPostingDesktopService.cs" />
+    <Compile Include="InventoryPostingDesktopService.cs" />
+    <Compile Include="InventoryPendingStore.cs" />
+    <Compile Include="JournalPendingStore.cs" />
+    <Compile Include="VoucherPendingStore.cs" />
+    <Compile Include="VoucherOperationRecovery.cs" />
+    <Compile Include="VoucherEditorsRecovery.cs" />
+    <Compile Include="VoucherEditorsOwnedQaSelfTests.cs" />
+    <Compile Include="VoucherEditorsRecoverySelfTests.cs" />
+    <Compile Include="VoucherSubmissionStatusSessionSelfTests.cs" />
+    <Compile Include="JournalOperationRecovery.cs" />
+    <Compile Include="JournalEntriesRecovery.cs" />
+    <Compile Include="QuickJournalRecovery.cs" />
+    <Compile Include="QuickJournalRecoverySelfTests.cs" />
+    <Compile Include="QuickJournalRecoveryQaSelfTests.cs" />
+    <Compile Include="JournalEntriesRecoverySelfTests.cs" />
+    <Compile Include="JournalEntriesRecoveryQaSelfTests.cs" />
+    <Compile Include="JournalPendingStoreSelfTests.cs" />
+    <Compile Include="JournalSubmissionStatusQaSelfTests.cs" />
+    <Compile Include="InventoryOperationRecovery.cs" />
+    <Compile Include="InventoryMovementPresentation.cs" />
+    <Compile Include="InventoryMovementReads.cs" />
+    <Compile Include="InventoryStockReportReads.cs" />
+    <Compile Include="InventoryStockReadSelfTests.cs" />
+    <Compile Include="InventoryStockReadQaVerification.cs" />
+    <Compile Include="VoucherPostingDesktopService.cs" />
+    <Compile Include="AccountWritingDesktopService.cs" />
+    <Compile Include="AccountingLookupDesktopService.cs" />
+    <Compile Include="JournalHistoryTableProjection.cs" />
+    <Compile Include="GeneralLedgerWorkspaceService.cs" />
+    <Compile Include="GeneralLedgerDesktopRead.cs" />
+    <Compile Include="GeneralLedgerForm.Presentation.cs" />
+    <Compile Include="GeneralLedgerPresentationSelfTests.cs" />
+    <Compile Include="HomeModuleAntdSelfTests.cs" />
+    <Compile Include="HomeSessionHeader.cs" />
+    <Compile Include="OwnedTestWindowViewport.cs" />
+    <Compile Include="AccountingReportsDesktopRead.cs" />
+    <Compile Include="AccountingReportsAsyncRead.cs" />
+    <Compile Include="AccountingReportsSessionSelfTests.cs" />
+    <Compile Include="AccountingReportsAsyncSelfTests.cs" />
+    <Compile Include="GeneralLedgerReadSelfTests.cs" />
+    <Compile Include="GeneralLedgerReadQaSelfTests.cs" />
+    <Compile Include="GeneralLedgerContentionQaSelfTests.cs" />
+    <Compile Include="GeneralLedgerPerformanceQaSelfTests.cs" />
+    <Compile Include="PurchaseInvoiceOperation.cs" />
+    <Compile Include="PurchaseInvoiceCancellationOperation.cs" />
+    <Compile Include="QaPurchaseCancellationSelfTests.cs" />
+    <Compile Include="PurchaseInventoryModeProvider.cs" />
+    <Compile Include="QaPurchaseInvoiceRollbackVerification.cs" />
+    <Compile Include="LegacySalesInvoiceRepository.cs" />
+    <Compile Include="DataTablePrintPreview.cs" />
+    <Compile Include="ReportPreviewLifetime.cs" />
+    <Compile Include="ReportPreviewLifetimeSelfTests.cs" />
+    <Compile Include="ReportPrintOptionsDialog.cs" />
+    <Compile Include="PrintLayoutSimulationChecks.cs" />
     <Compile Include="Billing.Designer.cs">
       <DependentUpon>Billing.cs</DependentUpon>
     </Compile>
+    <Compile Include="ArabicUi.cs" />
+    <Compile Include="UiLanguageCatalog.cs" />
+    <Compile Include="UiDirection.cs" />
+    <Compile Include="Notifications\UnsavedChangesDialog.cs" />
+    <Compile Include="UiLanguageSettings.cs" />
+    <Compile Include="LanguageSettingsForm.cs" />
+    <Compile Include="DeviceSettings.cs" />
+    <Compile Include="DeviceSettingsForm.cs" />
+    <Compile Include="ReportTemplateStore.cs" />
+    <Compile Include="ReportTemplateNameDialog.cs" />
+    <Compile Include="ReportColumnLayoutDialog.cs" />
+    <Compile Include="OperationalReportReadService.cs" />
+    <Compile Include="OperationalReportAsyncSelfTests.cs" />
+    <Compile Include="OperationalReportBuilderForm.cs" />
+    <Compile Include="OperationalReportPresets.cs" />
+    <Compile Include="DailyPharmacyPerformanceReport.cs" />
+    <Compile Include="ReportCsvWriter.cs" />
+    <Compile Include="ExcelWorkbookWriter.cs" />
+    <Compile Include="ExcelDataExportService.cs" />
+    <Compile Include="ExcelWorkbookReader.cs" />
+    <Compile Include="InvoiceImportWorkbook.cs" />
+    <Compile Include="InvoiceImportDraftForm.cs" />
+    <Compile Include="ImportedInvoiceSourceRegistry.cs" />
+    <Compile Include="ImportedInvoiceApprovalGuard.cs" />
+    <Compile Include="ImportedInvoiceRegistryQaSelfTests.cs" />
+    <Compile Include="QaImportedSaleSelfTests.cs" />
+    <Compile Include="QaInvoiceImportDraftSelfTests.cs" />
+    <Compile Include="MedicineCatalogWorkbook.cs" />
+    <Compile Include="MedicineCatalogImportForm.cs" />
+    <Compile Include="ExcelDataTransferForm.cs" />
+    <Compile Include="CashBoxManagementForm.cs" />
+    <Compile Include="CashBoxWorkbook.cs" />
+    <Compile Include="QaCsvImportService.cs" />
+    <Compile Include="QaCsvImportForm.cs" />
+    <Compile Include="PeriodCloseReadinessForm.cs" />
+    <Compile Include="AccountingIntegrityForm.cs" />
+    <Compile Include="InventoryIntegrityForm.cs" />
+    <Compile Include="AppFonts.cs" />
+    <Compile Include="AppDiagnostics.cs" />
+    <Compile Include="CommerceWorkspaceTheme.cs" />
+    <Compile Include="CommercialReturnSchemaVerification.cs" />
+    <Compile Include="CommercialSalesReturnRepository.cs" />
+    <Compile Include="CommercialSalesReturnService.cs" />
+    <Compile Include="CommercialSalesReturnReadService.cs" />
+    <Compile Include="CommercialReturnDesktopRead.cs" />
+    <Compile Include="CommercialReturnReadSelfTests.cs" />
+    <Compile Include="CommercialSalesReturnForm.cs" />
+    <Compile Include="CommercialReturnSubmissionGate.cs" />
+    <Compile Include="CommercialReturnPrintData.cs" />
+    <Compile Include="CommercialReturnPresentation.cs" />
+    <Compile Include="CommercialSalesReturnHistoryForm.cs" />
+    <Compile Include="CommercialAccountingPeriodPolicy.cs" />
+    <Compile Include="CommercialSchema.cs" />
+    <Compile Include="CommercialSelfTests.cs" />
+    <Compile Include="InvoiceCalculationRegressionTests.cs" />
+    <Compile Include="ResponsiveLayoutSelfTests.cs" />
+    <Compile Include="CommercialSalesRepository.cs" />
+    <Compile Include="CommercialInvoicePrintSnapshot.cs" />
+    <Compile Include="InvoicePrintHeader.cs" />
+    <Compile Include="CommercialInvoiceSnapshotRepository.cs" />
+    <Compile Include="CommercialEInvoiceOutboxRepository.cs" />
+    <Compile Include="SaudiCommercialFeatureSettings.cs" />
+    <Compile Include="SaudiCommercialSettingsForm.cs" />
+    <Compile Include="ClinicalIntegrations.cs" />
+    <Compile Include="CurrencyWorkspaceService.cs" />
+    <Compile Include="CurrencySettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurrencySettingsForm.Designer.cs">
+      <DependentUpon>CurrencySettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerLookupService.cs" />
+    <Compile Include="CustomerAccountLedgerService.cs" />
+    <Compile Include="QuarantineResolutionService.cs" />
+    <Compile Include="QuarantineResolutionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineLookupService.cs" />
+    <Compile Include="ApplicationServices.cs" />
+    <Compile Include="LegacyAuthenticationGateway.cs" />
+    <Compile Include="MedicineQuickSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicineQuickSearchForm.Designer.cs">
+      <DependentUpon>MedicineQuickSearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QaManualAcceptanceReadiness.cs" />
+    <Compile Include="QaCommercialReturnSelfTests.cs" />
+    <Compile Include="CommercialReturnPendingStore.cs" />
+    <Compile Include="CommercialReturnPendingSelfTests.cs" />
+    <Compile Include="CommercialSalesReturnForm.Recovery.cs" />
+    <Compile Include="ProductIdentityAndReturnsSchemaVerification.cs" />
+    <Compile Include="ActiveIngredientQaRollbackVerification.cs" />
+    <Compile Include="ActiveIngredientEditorValidation.cs" />
+    <Compile Include="CustomerSupplierManagementForm.cs" />
+    <Compile Include="ActiveIngredientManagementForm.cs" />
+    <Compile Include="PdfExportHelper.cs" />
+    <Compile Include="PermissionService.cs" />
+    <Compile Include="PermissionSelfTests.cs" />
+    <Compile Include="QaManufacturerCrudSelfTests.cs" />
+    <Compile Include="QaMedicineWritesSelfTests.cs" />
+    <Compile Include="PasswordSecurity.cs" />
+    <Compile Include="PasswordProtectorAdapter.cs" />
+    <Compile Include="Dashboard.AsyncRead.cs" />
+    <Compile Include="DashboardReadSession.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Database.cs" />
+    <Compile Include="RuntimeSettingsStore.cs" />
+    <Compile Include="EInvoicing.cs" />
+    <Compile Include="BootstrapManagerService.cs" />
+    <Compile Include="BootstrapManagerForm.cs" />
+    <Compile Include="LocalAdministratorAccess.cs" />
+    <Compile Include="ConnectionSettingsService.cs" />
+    <Compile Include="DatabaseSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DatabaseSettingsForm.Designer.cs">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PharmacyProfileService.cs" />
+    <Compile Include="PharmacyCompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PharmacyCompanyForm.Layout.cs">
+      <DependentUpon>PharmacyCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PharmacyCompanyForm.Designer.cs">
+      <DependentUpon>PharmacyCompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeWorkspaceService.cs" />
+    <Compile Include="HomeOperationalAlertReads.cs" />
+    <Compile Include="HomeAlertDesktopReads.cs" />
+    <Compile Include="HomeWorkspacePreferences.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="InventoryAlertPreferences.cs" />
+    <Compile Include="InventoryAlertPreferenceSession.cs" />
+    <Compile Include="InventoryAlertsForm.Preferences.cs" />
+    <Compile Include="InventoryForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryDataForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryDataForm.cs" />
+    <Compile Include="InventoryAlertsForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryHomeForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMovementForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMovementSummaryForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryOperationForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryStockReportForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryTurnoverForm.Designer.cs">
+      <DependentUpon>InventoryForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMovementService.cs" />
+    <Compile Include="InventoryService.cs" />
+    <Compile Include="QaInventoryRollbackVerification.cs" />
+    <Compile Include="InvoiceInventoryAlertPresenter.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,8 +450,47 @@
     <Compile Include="Medicine.Designer.cs">
       <DependentUpon>Medicine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Purchases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchases.Designer.cs">
+      <DependentUpon>Purchases.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="RememberMeService.cs" />
+    <Compile Include="ScreenModeSettings.cs" />
+    <Compile Include="AccessibilitySettingsForm.cs" />
+    <Compile Include="AccessibilitySettingsStorageSelfTests.cs" />
+    <Compile Include="Notifications\AppNotifications.cs" />
+    <Compile Include="Notifications\AppNotificationForm.cs" />
+    <Compile Include="Notifications\AppNotificationSelfTests.cs" />
+    <Compile Include="SessionContext.cs" /><Compile Include="SessionCommitGate.cs" /><Compile Include="SalesCommitAuthority.cs" />
+    <Compile Include="SystemMonitorReadService.cs" />
+    <Compile Include="SystemMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemMonitorForm.Designer.cs">
+      <DependentUpon>SystemMonitorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UiTheme.cs" />
+    <Compile Include="UiValidationException.cs" />
+    <Compile Include="CancellationFollowUpSelfTests.cs" />
+    <Compile Include="WorkspaceWriteFollowUpSelfTests.cs" />
+    <Compile Include="SettingsNavigationSelfTests.cs" />
+    <Compile Include="PharmacyProfileFollowUpSelfTests.cs" />
+    <Compile Include="DesktopDesign.cs" />
+    <Compile Include="AntdComponentsForm.cs" />
+    <Compile Include="AntdComponentChecks.cs" />
+    <Compile Include="ChartMixedTextSelfTests.cs" />
+    <Compile Include="JournalMixedTextSelfTests.cs" />
+    <Compile Include="JournalContextValueSelfTests.cs" />
+    <Compile Include="AntdComponentViewportSelfTests.cs" />
+    <Compile Include="ComponentMixedTextSelfTests.cs" />
+    <Compile Include="InventoryMetricValueSelfTests.cs" />
+    <Compile Include="SettingsForm.Antd.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Agent.resx">
       <DependentUpon>Agent.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,20 +500,30 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="DatabaseSettingsForm.resx">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PharmacyCompanyForm.resx">
+      <DependentUpon>PharmacyCompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="manufacturer.resx">
       <DependentUpon>manufacturer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Medicine.resx">
       <DependentUpon>Medicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchases.resx">
+      <DependentUpon>Purchases.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -157,6 +533,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -168,9 +545,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Billing.CustomerReads.cs" />
+    <Compile Include="Billing.A4Print.cs" />
+    <Compile Include="Purchases.A4Print.cs" />
+    <Compile Include="PurchaseA4PrintLayout.cs" />
+    <Compile Include="InvoiceNoteRenderer.cs" />
+    <Compile Include="Invoice.ThermalPrint.cs" />
+    <Compile Include="ThermalInvoicePrintLayout.cs" />
+    <Compile Include="InvoicePrintIdentity.cs" />
+    <Compile Include="SalesCustomerReferenceDesktopRead.cs" />
+    <Compile Include="BillingCustomerReadSelfTests.cs" />
+    <Compile Include="Dashboard.FinancialRead.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EmbeddedResource Include="Resources\Outlined\*.svg" />
+    <Content Include="Resources\Licenses\*.txt;Resources\Licenses\*.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Fonts\*.ttf;Resources\Fonts\*.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -184,5 +581,76 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\PharmacyManagement.Domain\PharmacyManagement.Domain.csproj">
+      <Project>{D25DE040-9827-432A-B94C-C975338D8A26}</Project>
+      <Name>PharmacyManagement.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\PharmacyManagement.Application\PharmacyManagement.Application.csproj">
+      <Project>{52918BE8-3685-4D8A-A5D9-4866B9C8508D}</Project>
+      <Name>PharmacyManagement.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\src\PharmacyManagement.Infrastructure.SqlServer\PharmacyManagement.Infrastructure.SqlServer.csproj">
+      <Project>{96C2A1DA-9463-438D-A156-637A0A950359}</Project>
+      <Name>PharmacyManagement.Infrastructure.SqlServer</Name>
+    </ProjectReference>
+    <Compile Include="JournalOperationRecoverySelfTests.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="CopyAppConfigToOutput" AfterTargets="Build;AfterBuild">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\App.config" DestinationFiles="$(TargetPath).config" Condition="Exists('$(MSBuildProjectDirectory)\App.config')" SkipUnchangedFiles="false" />
+  </Target>
+  <Target Name="CopyResourcesToOutput" AfterTargets="Build;AfterBuild">
+    <ItemGroup>
+      <_ResourceFiles Include="$(MSBuildProjectDirectory)\Resources\*.png" />
+      <_FontFiles Include="$(MSBuildProjectDirectory)\Resources\Fonts\*.ttf" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_ResourceFiles)" DestinationFolder="$(TargetDir)\Resources" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(_FontFiles)" DestinationFolder="$(TargetDir)\Resources\Fonts" SkipUnchangedFiles="true" />
+  </Target>
+  <ItemGroup>
+    <Compile Include="CustomerMasterWriteSession.cs" />
+    <Compile Include="CustomerMasterPendingStore.cs" />
+    <Compile Include="CustomerSupplierManagementForm.WriteRecovery.cs" />
+    <Compile Include="CustomerMasterWriteUiSelfTests.cs" />
+    <Compile Include="CustomerMasterWriteSqlUiSelfTests.cs" />
+    <Compile Include="CustomerMasterWriteSessionSelfTests.cs" />
+    <Compile Include="CustomerMasterPendingStoreSelfTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PurchaseBarcodeReadSession.cs" />
+    <Compile Include="PurchaseBarcodeAsyncSelfTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PurchaseWriteReceiptStore.cs" />
+    <Compile Include="PurchasePendingStore.cs" />
+    <Compile Include="PurchaseWriteRecoveryCoordinator.cs" />
+    <Compile Include="PurchaseInvoiceOperation.AsyncSql.cs" />
+    <Compile Include="PurchaseAsyncInventoryMovementWriter.cs" />
+    <Compile Include="PurchaseAsyncBusinessPeriodPolicy.cs" />
+    <Compile Include="PurchaseAsyncImportedSourceRegistry.cs" />
+    <Compile Include="PurchaseAsyncImportGuard.cs" />
+    <Compile Include="PurchaseAsyncJournalWriter.cs" />
+    <Compile Include="PurchaseAsyncAccountingService.cs" />
+    <Compile Include="PurchaseAsyncInventoryMode.cs" />
+    <Compile Include="PurchaseInvoiceOperation.AsyncPipeline.cs" />
+    <Compile Include="PurchaseWriteReceiptSchema.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\database\migrations\0025_purchase_write_request_identity.sql">
+      <LogicalName>project_fo_3.PurchaseWriteReceiptSchema.sql</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InvoiceInventoryAlertStatusSelfTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SalesShortcutPreferences.cs" />
+    <Compile Include="SalesShortcutSettingsForm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DailyOperationsDesktopRead.cs" />
+  </ItemGroup>
 </Project>

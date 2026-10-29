@@ -158,9 +158,7 @@ Pharmacy-Management/
 │   ├── 🏭 ManufacturerRecords.cs     # Supplier management form
 │   └── 🔐 Login.cs                   # Authentication form
 ├── 📁 Data/
-│   ├── 🗄️ PHARMACYOB.MDF             # SQL Server database file
-│   ├── 📄 savedLogin.txt             # Login credentials backup
-│   └── 📊 InventoryData.txt          # Medicine stock data
+│   └── 🗄️ SQL Server                 # Database is created/selected through F1 connection settings
 ├── 📁 Models/
 │   ├── 👤 Agent.cs                   # Employee data model
 │   ├── 💊 Medicine.cs                # Medicine data model
@@ -183,7 +181,7 @@ Pharmacy-Management/
 - Windows 10/11 (64-bit recommended)
 - .NET Framework 4.7.2 or higher
 - Visual Studio 2019 or later (for development)
-- SQL Server LocalDB
+- SQL Server / SQL Server Express / LocalDB
 
 ### **Installation Steps**
 
@@ -202,18 +200,20 @@ cd Pharmacy-Management
 3. **Open in Visual Studio**
 
    - Launch Visual Studio
-   - Open `PharmacyManagement.sln`
+   - Open `project_fo_3.sln`
 
 4. **Configure Database Connection**
-   - Update the connection string in the code:
-
-```csharp
-public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\PROJECT_OOP\FO_ORGANIZATION\PHARMACY-MANAGEMENT\PROJECT_FO_3\PHARMACYOB.MDF;Integrated Security=True;");
-```
+   - Run the application and press `F1` on the login screen.
+   - Choose the SQL Server instance, use `Find Servers` if needed, load or type the database name, test the connection, then save.
+   - You can also choose the application theme: `Light`, `Dark`, or `System`.
+   - إعداد البناء الافتراضي هو قاعدة الإنتاج `PharmacyManagementDb` في `App.config`، لكن أي اتصال يختاره المسؤول من الشاشة يُحفظ خارج مجلد التطبيق في `%ProgramData%\PharmacyManagement\runtime-settings.xml` كي لا تعيده عملية البناء أو التحديث إلى إعداد قديم.
+   - لا تحفظ شاشة الإعدادات كلمة مرور SQL؛ المسار الحالي يعتمد مصادقة Windows. لا تعدّل الملف يدويًا، واستخدم شاشة F1 بحساب Windows مسؤولًا محليًا.
+   - استخدم قاعدة ينتهي اسمها تحديدًا بـ `_qa` أو `_test` أو `_sandbox` للتجارب فقط. يعرض النظام وسم «اختبار» عند اختيارها؛ لا تعد هذه القواعد إنتاجًا ولا تُنقل بياناتها تلقائيًا إلى الإنتاج.
 
 5. **Build and Run**
    - Press `F5` or click `Start Debugging`
    - Ensure all dependencies are restored
+    - قاعدة التشغيل لا تُنشأ أو تُرقّى تلقائياً عند تسجيل الدخول. جهّز المخطط الأساسي صراحةً وأنشئ أول مدير عبر المسار الإداري الموثق في [DATABASE_BOOTSTRAP_AR.md](docs/DATABASE_BOOTSTRAP_AR.md).
 
 ---
 
@@ -223,7 +223,7 @@ public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalD
 - **RAM**: 4GB minimum (8GB recommended)
 - **Storage**: 500MB free space
 - **Framework**: .NET Framework 4.7.2+
-- **Database**: SQL Server LocalDB
+- **Database**: SQL Server, SQL Server Express, or LocalDB
 - **Resolution**: 1024x768 minimum
 
 ---
@@ -233,7 +233,7 @@ public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalD
 ### **Getting Started**
 
 1. **Launch Application**: Run the executable or start from Visual Studio
-2. **Login**: Use the provided credentials (see Login Information section)
+2. **Login**: سجّل بحساب المدير الذي أنشأته المنشأة؛ لا توجد بيانات دخول افتراضية.
 3. **Navigate Modules**: Access different management sections from the main menu
 4. **Manage Data**: Add, edit, search, and delete records as needed
 5. **Generate Reports**: Use billing module for transaction reports
@@ -247,50 +247,11 @@ public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalD
 
 ---
 
-## 🔑 Login Information
+## 🔑 Login and access
 
-### **Default Credentials**
+لا يوفّر النظام اسم مستخدم أو كلمة مرور افتراضيين، ولا تُعدَّل بيانات الدخول من الكود. أنشئ أول مدير ضمن تهيئة المؤسسة، ثم أدِر الحسابات والصلاحيات من واجهة الإدارة. تستخدم كلمات المرور الجديدة تجزئة PBKDF2-SHA256، ويجب أن تكون قوية وألا تبدأ أو تنتهي بمسافات.
 
-- **Username**: `admin`
-- **Password**: `123`
-
-### **Security Implementation**
-
-```csharp
-// Login validation with file backup
-string filename = @"E:\Project_OOP\FO_organization\Pharmacy-Management\savedLogin.txt";
-using (FileStream myfile = new FileStream(filename, FileMode.OpenOrCreate, FileAccess.Write))
-{
-    using (StreamWriter sw = new StreamWriter(myfile))
-    {
-        sw.WriteLine($"username: {username.Text}\t password:{password.Text}");
-    }
-}
-
-if (name == "admin" && pass == "123")
-{
-    Hide();
-    Home basic = new Home();
-    basic.ShowDialog();
-}
-else
-{
-    MessageBox.Show("Error, your Username or Password is incorrect");
-    username.Text = password.Text = null;
-}
-```
-
-### **Changing Login Credentials**
-
-To modify the default login credentials:
-
-```csharp
-// Update these values in the Login.cs file
-string defaultUsername = "admin";  // Change to your preferred username
-string defaultPassword = "123";    // Change to your secure password
-```
-
-**⚠️ Important**: Always use strong passwords in production environments!
+قبل التشغيل التجاري، اتبع [دليل تهيئة القاعدة](docs/DATABASE_BOOTSTRAP_AR.md) وخطة [الإطلاق التجاري التجريبي](docs/COMMERCIAL_ROLLOUT_AR.md). لا تفعل وضع الدفعات أو الفاتورة الإلكترونية الحية قبل اجتياز بوابة QA والاعتمادات المطلوبة.
 
 ---
 
@@ -298,11 +259,21 @@ string defaultPassword = "123";    // Change to your secure password
 
 ### **Connection String Setup**
 
-The application uses SQL Server LocalDB. Update the connection string to match your file path:
+يستخدم التطبيق `PharmacyConnection` كأساس بناء، ثم يقرأ ملف إعداد التشغيل الدائم -إن أنشأه المسؤول- قبل الاتصال. اضغط `F1` في شاشة الدخول لتعديل الخادم/القاعدة دون تحرير المصدر أو ملف الإعداد يدويًا.
 
-```csharp
-public SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=[YOUR_PROJECT_PATH]\PHARMACYOB.MDF;Integrated Security=True;");
+```xml
+<add name="PharmacyConnection"
+     connectionString="Data Source=.;Initial Catalog=PharmacyManagementDb;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;Connect Timeout=15"
+     providerName="System.Data.SqlClient" />
 ```
+
+بعد الحفظ الناجح، يعيد التطبيق فتح الاتصال من الإعداد الجديد ويعرض البيئة: «إنتاج» أو «اختبار». لا تعني إعادة بناء التطبيق فقدان البيانات؛ إذا بدت السجلات مفقودة فافحص اسم القاعدة النشطة أولًا باستخدام:
+
+```powershell
+.\project_fo_3.exe --report-runtime-connection
+```
+
+لا تحذف قاعدة QA عند التحويل إلى الإنتاج؛ فهي قاعدة مستقلة وقد تضم بيانات اختبار أو سجلات سابقة. يتطلب أي نقل منها نسخة احتياطية قابلة للاستعادة ومطابقة أعداد البيانات وموافقة تشغيلية.
 
 ### **Database Tables**
 

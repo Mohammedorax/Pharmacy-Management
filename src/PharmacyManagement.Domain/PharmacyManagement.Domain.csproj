@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{D25DE040-9827-432A-B94C-C975338D8A26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PharmacyManagement.Domain</RootNamespace>
+    <AssemblyName>PharmacyManagement.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Deterministic>true</Deterministic>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <!-- Single compilation owner during extraction; desktop no longer compiles these sources. -->
+    <Compile Include="..\..\project_fo_3\CommercialDomain.cs"><Link>CommercialDomain.cs</Link></Compile>
+    <Compile Include="..\..\project_fo_3\CommercialReturnDomain.cs"><Link>CommercialReturnDomain.cs</Link></Compile>
+    <Compile Include="TaxPolicy.cs" />
+    <Compile Include="InventoryQuantityCalculator.cs" />
+    <Compile Include="MedicineUnits.cs" />
+    <Compile Include="MedicineUnitCostCalculator.cs" />
+    <Compile Include="MedicineUnitSelection.cs" />
+    <Compile Include="JournalEntryPreparation.cs" />
+    <Compile Include="JournalAmountCalculator.cs" />
+    <Compile Include="VoucherAmountCalculator.cs" />
+    <Compile Include="VoucherPreparation.cs" />
+    <Compile Include="AccountHierarchy.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

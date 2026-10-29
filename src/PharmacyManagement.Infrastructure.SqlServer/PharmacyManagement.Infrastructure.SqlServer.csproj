@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{96C2A1DA-9463-438D-A156-637A0A950359}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>PharmacyManagement.Infrastructure.SqlServer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Compile Include="SqlInvoiceIssuerReadRepository.cs" />
+    <Compile Include="SqlFrequentMedicineSuggestionRepository.cs" />
+    <Compile Include="SqlPurchaseDraftNumberRepository.cs" />
+    <Compile Include="SqlPurchaseInventoryModeReadRepository.cs" />
+    <Compile Include="SqlPurchaseLookupReadRepository.cs" />
+    <Compile Include="SqlJournalEditorLookupReadRepository.cs" />
+    <Compile Include="SqlInventoryMovementWriter.cs" />
+    <Compile Include="SqlInventoryPostRepository.cs" />
+    <Compile Include="SqlInventoryOperationReadRepository.cs" />
+    <Compile Include="SqlInventoryStockReadRepository.cs" />
+    <Compile Include="SqlJournalDocumentReadRepository.cs" />
+    <Compile Include="SqlMedicineSearchRepository.cs" />
+    <Compile Include="SqlManufacturerRepository.cs" />
+    <Compile Include="SqlMedicineRepository.cs" />
+    <Compile Include="SqlMedicineUnitCatalogRepository.cs" />
+    <EmbeddedResource Include="..\..\database\contracts\medicine_unit_catalog_v1.sql">
+      <LogicalName>PharmacyManagement.MedicineUnitCatalog.v1.sql</LogicalName>
+    </EmbeddedResource>
+    <Compile Include="SqlTransactionBoundaryDispatcher.cs" />
+    <Compile Include="SqlActiveIngredientRepository.cs" />
+    <Compile Include="SqlEmployeeRepository.cs" />
+    <Compile Include="SqlCashBoxRepository.cs" />
+    <Compile Include="SqlCashBoxJournalRepository.cs" />
+    <Compile Include="SqlEmployeePermissionRepository.cs" />
+    <Compile Include="SqlSalesCustomerRepository.cs" />
+    <Compile Include="SqlSalesHistoryRepository.cs" />
+    <Compile Include="SqlDashboardReadRepository.cs" />
+    <Compile Include="SqlCurrencyReadRepository.cs" />
+    <Compile Include="SqlOperationalReportRepository.cs" />
+    <Compile Include="SqlOperationalReportQueries.cs" />
+    <Compile Include="SqlSystemMonitorLogRepository.cs" />
+    <Compile Include="SqlInventoryAlertRepository.cs" />
+    <Compile Include="SqlInventoryOperationalReportRepository.cs" />
+    <Compile Include="SqlInventoryIntegrityReadRepository.cs" />
+    <Compile Include="SqlAccountBalanceReadRepository.cs" />
+    <Compile Include="SqlGeneralLedgerReadRepository.cs" />
+    <Compile Include="SqlAccountingReportsReadRepository.cs" />
+    <Compile Include="SqlVoucherDocumentReadRepository.cs" />
+    <Compile Include="SqlVoucherHistoryReadRepository.cs" />
+    <Compile Include="SqlJournalWriter.cs" />
+    <Compile Include="SqlJournalPostRepository.cs" />
+    <Compile Include="SqlJournalSubmissionStatusRepository.cs" />
+    <Compile Include="SqlJournalRequestComparison.cs" />
+    <Compile Include="SqlVoucherPostRepository.cs" />
+    <Compile Include="SqlVoucherSubmissionStatusRepository.cs" />
+    <Compile Include="SqlAccountWriteRepository.cs" />
+    <Compile Include="SqlBusinessPeriodPolicy.cs" />
+    <Compile Include="SqlAccountingLookupReadRepository.cs" />
+    <Compile Include="SqlJournalHistoryReadRepository.cs" />
+    <Compile Include="SqlAccountingIntegrityReadRepository.cs" />
+    <Compile Include="SqlDailyPharmacyPerformanceReport.cs" />
+    <Compile Include="SqlFastMovementReports.cs" />
+    <Compile Include="SqlCurrencyWriteRepository.cs" />
+    <Compile Include="SqlPurchaseWorkspaceRepository.cs" />
+    <Compile Include="SqlInvoiceImportDraftRepository.cs" />
+    <ProjectReference Include="..\PharmacyManagement.Domain\PharmacyManagement.Domain.csproj">
+      <Project>{D25DE040-9827-432A-B94C-C975338D8A26}</Project>
+      <Name>PharmacyManagement.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PharmacyManagement.Application\PharmacyManagement.Application.csproj">
+      <Project>{52918BE8-3685-4D8A-A5D9-4866B9C8508D}</Project>
+      <Name>PharmacyManagement.Application</Name>
+    </ProjectReference>
+    <Compile Include="SqlCommercialReturnReadRepository.cs" />
+    <Compile Include="SqlCustomerReferenceReadRepository.cs" />
+    <Compile Include="SqlSalesCustomerCreditReadRepository.cs" />
+    <Compile Include="SqlDashboardFinancialRepository.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="SqlCustomerMasterWriteRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SqlPurchaseMedicineReadRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SqlDailyOperationsReadRepository.cs" />
+    <Compile Include="GeneralLedgerTableRead.cs" />
+  </ItemGroup>
+</Project>

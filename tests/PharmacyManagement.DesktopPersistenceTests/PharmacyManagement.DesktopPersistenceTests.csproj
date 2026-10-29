@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{9BB6516C-11C1-4D37-8C1E-35BA717F6A73}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>PharmacyManagement.DesktopPersistenceTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Compile Include="InventoryPendingStoreProbe.cs" />
+    <Compile Include="..\..\project_fo_3\JournalOperationRecovery.cs"><Link>JournalOperationRecovery.cs</Link></Compile>
+    <Compile Include="..\..\project_fo_3\JournalOperationRecoverySelfTests.cs"><Link>JournalOperationRecoverySelfTests.cs</Link></Compile>
+    <Compile Include="..\..\project_fo_3\JournalPendingStore.cs"><Link>JournalPendingStore.cs</Link></Compile>
+    <Compile Include="..\..\project_fo_3\JournalPendingStoreSelfTests.cs"><Link>JournalPendingStoreSelfTests.cs</Link></Compile>
+    <Compile Include="..\..\project_fo_3\InventoryPendingStore.cs"><Link>InventoryPendingStore.cs</Link></Compile>
+    <ProjectReference Include="..\..\src\PharmacyManagement.Domain\PharmacyManagement.Domain.csproj"><Project>{D25DE040-9827-432A-B94C-C975338D8A26}</Project><Name>PharmacyManagement.Domain</Name></ProjectReference>
+    <ProjectReference Include="..\..\src\PharmacyManagement.Application\PharmacyManagement.Application.csproj">
+      <Project>{52918BE8-3685-4D8A-A5D9-4866B9C8508D}</Project>
+      <Name>PharmacyManagement.Application</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

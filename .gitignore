@@ -8,3 +8,28 @@
 # Build folders
 bin/
 obj/
+
+# Local database and backup artifacts (never commit operational data)
+*.mdf
+*.ldf
+*.bak
+*.db
+*.sqlite
+
+# Test, publish, and local tooling output
+TestResults/
+publish/
+exports/
+*.cache
+*.log
+
+# Legacy operational script; do not version or distribute it.
+scriptZatca18-10-2025.sql
+
+# Downloaded local developer tools
+.tools/
+
+.superdesign/tmp/
+
+# Local acceptance evidence: dated runs and their binary copies stay out of the repository.
+artifacts/

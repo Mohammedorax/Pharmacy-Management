@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{52918BE8-3685-4D8A-A5D9-4866B9C8508D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>PharmacyManagement.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Compile Include="InvoiceIssuerReads.cs" />
+    <Compile Include="FrequentMedicineSuggestions.cs" />
+    <Compile Include="PurchaseDraftNumbers.cs" />
+    <Compile Include="PurchaseInventoryModeReads.cs" />
+    <Compile Include="PurchaseLookupReads.cs" />
+    <Compile Include="JournalEditorLookupRead.cs" />
+    <Compile Include="InventoryPosting.cs" />
+    <Compile Include="InventoryOperationReads.cs" />
+    <Compile Include="InventoryStockReads.cs" />
+    <Compile Include="JournalDocumentRead.cs" />
+    <Compile Include="MedicineSearch.cs" />
+    <Compile Include="Authentication.cs" />
+    <Compile Include="Manufacturers.cs" />
+    <Compile Include="Medicines.cs" />
+    <Compile Include="MedicineUnitCatalog.cs" />
+    <Compile Include="MedicineCatalogImport.cs" />
+    <Compile Include="InvoiceImport.cs" />
+    <Compile Include="InvoiceImportApprovalMapping.cs" />
+    <Compile Include="InvoiceImportApproval.cs" /><Compile Include="ImportedInvoiceLookup.cs" />
+    <Compile Include="InvoiceImportDrafts.cs" />
+    <Compile Include="ActiveIngredients.cs" />
+    <Compile Include="Employees.cs" />
+    <Compile Include="CashBoxes.cs" />
+    <Compile Include="EmployeePermissions.cs" />
+    <Compile Include="SalesCustomers.cs" />
+    <Compile Include="SalesInvoices.cs" /><Compile Include="SalesWriteIntent.cs" />
+    <Compile Include="SalesHistory.cs" />
+    <Compile Include="DashboardRead.cs" />
+    <Compile Include="CurrencyRead.cs" />
+    <Compile Include="CurrencyWrites.cs" />
+    <Compile Include="ReportSearchCriteria.cs" />
+    <Compile Include="OperationalReportReads.cs" />
+    <Compile Include="SystemMonitorLogReads.cs" />
+    <Compile Include="SystemMonitorAccessReads.cs" />
+    <Compile Include="InventoryAlertReads.cs" />
+    <Compile Include="InventoryOperationalReportReads.cs" />
+    <Compile Include="InventoryIntegrityRead.cs" />
+    <Compile Include="AccountBalanceRead.cs" />
+    <Compile Include="VoucherDocumentRead.cs" />
+    <Compile Include="VoucherHistoryRead.cs" />
+    <Compile Include="JournalPosting.cs" />
+    <Compile Include="JournalPendingRequest.cs" />
+    <Compile Include="JournalSubmissionStatus.cs" />
+    <Compile Include="JournalAcceptedRequestConflictException.cs" />
+    <Compile Include="JournalPostRejectedException.cs" />
+    <Compile Include="VoucherPosting.cs" />
+    <Compile Include="VoucherSubmissionStatus.cs" />
+    <Compile Include="VoucherPendingRequest.cs" />
+    <Compile Include="VoucherDraftInputs.cs" />
+    <Compile Include="VoucherPostRejectedException.cs" />
+    <Compile Include="AccountWriting.cs" />
+    <Compile Include="AccountingLookupRead.cs" />
+    <Compile Include="JournalHistoryRead.cs" />
+    <Compile Include="AccountingIntegrityRead.cs" />
+    <Compile Include="AccountingReportReadRequest.cs" />
+    <Compile Include="AccountingReportsRead.cs" />
+    <Compile Include="GeneralLedgerRead.cs" />
+    <Compile Include="PurchaseWorkspace.cs" />
+    <Compile Include="PurchaseInvoices.cs" />
+    <Compile Include="CommercialReturnReads.cs" />
+    <Compile Include="CustomerReferenceReads.cs" />
+    <Compile Include="SalesCustomerCreditRead.cs" />
+    <Compile Include="DashboardFinancialRead.cs" />
+    <Compile Include="DashboardFinancialService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PharmacyManagement.Domain\PharmacyManagement.Domain.csproj">
+      <Project>{D25DE040-9827-432A-B94C-C975338D8A26}</Project>
+      <Name>PharmacyManagement.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="CustomerMasterWrites.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PurchaseMedicineReads.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PurchaseWriteIntent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DailyOperationsRead.cs" />
+  </ItemGroup>
+</Project>

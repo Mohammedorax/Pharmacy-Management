@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{FAB458E1-467E-43B6-A60F-35B04CD63354}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>PharmacyManagement.CoreTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Security" />
+    <Compile Include="JournalEditorLookupReadTests.cs" />
+    <Compile Include="InventoryPostingTests.cs" />
+    <Compile Include="InventoryOperationReadTests.cs" />
+    <Compile Include="InventoryOperationReadSqlTests.cs" />
+    <Compile Include="InventoryPostingSqlTests.cs" />
+    <Compile Include="JournalDocumentReadTests.cs" />
+    <Compile Include="SearchTests.cs" />
+    <Compile Include="PopularUnitSqlTests.cs" />
+    <Compile Include="ReturnHistoryUnitSqlTests.cs" />
+    <Compile Include="UnitReportCurrencySqlTests.cs" />
+    <Compile Include="AuthenticationTests.cs" />
+    <Compile Include="ManufacturerTests.cs" />
+    <Compile Include="MedicineTests.cs" />
+    <Compile Include="ActiveIngredientTests.cs" />
+    <Compile Include="EmployeeTests.cs" />
+    <Compile Include="CashBoxTests.cs" />
+    <Compile Include="SalesCustomerTests.cs" />
+    <Compile Include="SalesHistoryTests.cs" />
+    <Compile Include="DashboardAuthorizationContractTests.cs" />
+    <Compile Include="DashboardReadTests.cs" />
+    <Compile Include="CurrencyReadTests.cs" />
+    <Compile Include="CurrencyWriteTests.cs" />
+    <Compile Include="ReportSearchCriteriaTests.cs" />
+    <Compile Include="OperationalReportReadTests.cs" />
+    <Compile Include="SystemMonitorLogReadTests.cs" />
+    <Compile Include="MonitorGuardTests.cs" />
+    <Compile Include="InventoryAlertReadTests.cs" />
+    <Compile Include="InventoryIntegrityReadTests.cs" />
+    <Compile Include="AccountingIntegrityReadTests.cs" />
+    <Compile Include="AccountingReportReadRequestTests.cs" />
+    <Compile Include="AccountingReportsReadTests.cs" />
+    <Compile Include="AccountBalanceReadTests.cs" />
+    <Compile Include="GeneralLedgerReadTests.cs" />
+    <Compile Include="GeneralLedgerReadSqlTests.cs" />
+    <Compile Include="VoucherAmountTests.cs" />
+    <Compile Include="VoucherDocumentReadTests.cs" />
+    <Compile Include="VoucherHistoryReadTests.cs" />
+    <Compile Include="JournalPostingTests.cs" />
+    <Compile Include="JournalNativeAsyncTests.cs" />
+    <Compile Include="JournalCurrencySnapshotTests.cs" />
+    <Compile Include="JournalSubmissionRecoveryTests.cs" />
+    <Compile Include="JournalPayloadComparisonTests.cs" />
+    <Compile Include="VoucherPendingStoreTests.cs" />
+    <Compile Include="VoucherOwnedRecoverySqlTests.cs" />
+    <Compile Include="..\..\project_fo_3\VoucherPendingStore.cs">
+      <Link>VoucherPendingStore.cs</Link>
+    </Compile>
+    <Compile Include="..\..\project_fo_3\VoucherOperationRecovery.cs">
+      <Link>VoucherOperationRecovery.cs</Link>
+    </Compile>
+    <Compile Include="VoucherPostingTests.cs" />
+    <Compile Include="VoucherSubmissionStatusTests.cs" />
+    <Compile Include="AccountWritingTests.cs" />
+    <Compile Include="AccountWritingSqlTests.cs" />
+    <Compile Include="VoucherPostingSqlTests.cs" />
+    <Compile Include="VoucherRequestIdentitySqlTests.cs" />
+    <Compile Include="QaAccountingWriteFixture.cs" />
+    <Compile Include="JournalPostingSqlTests.cs" />
+    <Compile Include="JournalEntryPreparationTests.cs" />
+    <Compile Include="JournalAmountCalculatorTests.cs" />
+    <Compile Include="InventoryQuantityCalculatorTests.cs" />
+    <Compile Include="AccountingLookupReadTests.cs" />
+    <Compile Include="JournalHistoryReadTests.cs" />
+    <Compile Include="PurchaseWorkspaceTests.cs" />
+    <Compile Include="InvoiceImportTests.cs" />
+    <Compile Include="InvoiceImportApprovalTests.cs" />
+    <Compile Include="InvoiceImportDraftTests.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="MedicineUnitTests.cs" />
+    <Compile Include="MedicineUnitCatalogServiceTests.cs" />
+    <Compile Include="MedicineUnitInvoiceTests.cs" />
+    <ProjectReference Include="..\..\src\PharmacyManagement.Domain\PharmacyManagement.Domain.csproj">
+      <Project>{D25DE040-9827-432A-B94C-C975338D8A26}</Project>
+      <Name>PharmacyManagement.Domain</Name>
+    </ProjectReference>
+    <Compile Include="CustomerReferenceReadTests.cs" />
+    <Compile Include="SalesCustomerCreditReadTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\PharmacyManagement.Application\PharmacyManagement.Application.csproj">
+      <Project>{52918BE8-3685-4D8A-A5D9-4866B9C8508D}</Project>
+      <Name>PharmacyManagement.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\PharmacyManagement.Infrastructure.SqlServer\PharmacyManagement.Infrastructure.SqlServer.csproj">
+      <Project>{96C2A1DA-9463-438D-A156-637A0A950359}</Project>
+      <Name>PharmacyManagement.Infrastructure.SqlServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="CustomerMasterWriteTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MedicineSyncReadTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PurchaseMedicineReadTests.cs" />
+    <Compile Include="PurchaseLookupReadTests.cs" />
+    <Compile Include="PurchaseInventoryModeReadTests.cs" />
+    <Compile Include="PurchaseDraftNumberTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PurchaseWriteIntentTests.cs" />
+  </ItemGroup>
+</Project>
